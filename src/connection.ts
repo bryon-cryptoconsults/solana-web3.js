@@ -3955,11 +3955,6 @@ export class Connection {
       let logs;
       if ('data' in res.error) {
         logs = res.error.data.logs;
-        if (logs && Array.isArray(logs)) {
-          const traceIndent = '\n    ';
-          const logTrace = traceIndent + logs.join(traceIndent);
-          console.error(res.error.message, logTrace);
-        }
       }
       throw new SendTransactionError(
         'failed to send transaction: ' + res.error.message,
